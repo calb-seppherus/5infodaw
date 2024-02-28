@@ -20,15 +20,38 @@
         <input type="color" name="cores" id="cor"><br>
         <label for="email">Email</label>
         <input type="email" name="email" id="email"><br>
-        <label for="interesse1">futebol</label>
-        <input type="checkbox" name="interesse" id="interesse1" value="futebol"><br>
-        <label for="interesse2">voleibol</label>
-        <input type="checkbox" name="interesse" id="interesse2" value="voleibol"><br>
-        <label for="interesse3">basquete</label>
-        <input type="checkbox" name="interesse" id="interesse3" value="basquete"><br>
-        <label for="interesse4">ping-pong</label>
-        <input type="checkbox" name="interesse" id="interesse4" value="ping-pong"><br>
-
+        <fieldset>
+            <legend>Interesses</legend>
+            <label for="interesse1">futebol</label>
+            <input type="checkbox" name="interesse" id="interesse1" value="futebol"><br>
+            <label for="interesse2">voleibol</label>
+            <input type="checkbox" name="interesse" id="interesse2" value="voleibol"><br>
+            <label for="interesse3">basquete</label>
+            <input type="checkbox" name="interesse" id="interesse3" value="basquete"><br>
+            <label for="interesse4">ping-pong</label>
+            <input type="checkbox" name="interesse" id="interesse4" value="ping-pong"><br>
+        </fieldset>
+        <label for="cidade">Cidade</label>
+        <select name="cidade" id="cidade">
+            <optgroup label="Região da Campanha">
+                <option value="bage">Bagé</option>
+                <option value="hulha">Hulha Negra</option>
+                <option value="acegua">Aceguá</option>
+                <option value="candiota">Candiota</option>
+            </optgroup>
+            <optgroup label="Região metropolitana">
+                <option value="portoalegre">Porto Alegre</option>
+                <option value="canoas">Canoas</option>
+            </optgroup>
+        </select><br>
+        <input list="browsers">
+        <datalist id="browsers">
+            <option value="chrome">Chrome</option>
+            <option value="firefox">Firefox</option>
+            <option value="opera">Opera</option>
+            <option value="edge">Edge</option>
+            <option value="safari">Safari</option>
+        </datalist>
         <input type="submit" value="enviar">
     </form>
 </body>
