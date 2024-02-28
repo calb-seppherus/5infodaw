@@ -9,6 +9,11 @@ app.get('/', (req,res)=>{
     res.render('index')
 })
 
+app.get('/calculo',(req,res)=>
+{
+    res.render('calculo')
+})
+
 app.get('/gabriel', (req,res)=>{
     res.send('Hello Gabriel!')
 })
@@ -37,7 +42,17 @@ app.get('/somad/:numero1/:numero2', (req,res)=>{
 
 app.post('/pesquisar', (req,res) =>
 {
-    res.send('dados recebidos: '+req.body)
+    res.send('dados recebidos: '+req.body.nome)
 })
+
+
+app.post('/calcular',(req,res)=>
+{
+    const n1 = parseInt(req.body.numero1)
+    const n2 = parseInt(req.body.numero2)
+    const resposta = n1 + n2
+    res.send('Resultado: '+resposta)
+}) 
+
 
 app.listen(port)
