@@ -8,7 +8,7 @@ app.use(express.urlencoded({extended:true}))
 app.get('/', (req,res)=>{
     res.render('index')
 })
-
+//rota para abrir a pagina calculo.ejs
 app.get('/calculo',(req,res)=>
 {
     res.render('calculo')
@@ -45,7 +45,7 @@ app.post('/pesquisar', (req,res) =>
     res.send('dados recebidos: '+req.body.nome)
 })
 
-
+//rota para receber os dados, fazer o calculo e mostrar o resultado final
 app.post('/calcular',(req,res)=>
 {
     const n1 = parseInt(req.body.numero1)
