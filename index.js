@@ -9,10 +9,22 @@ app.get('/', (req,res)=>
 {
     res.render('index')
 })
+
 //rota para abrir a pagina calculo.ejs
 app.get('/calculo',(req,res)=>
 {
     res.render('calculo')
+})
+
+app.get('/paragrafo',(req,res)=>
+{
+    res.render('paragrafo')
+})
+
+app.post('/paragrafar',(req,res)=>
+{
+    const maxparag = parseInt(req.body.parag)
+    res.render('paragrafo',{maxparag:maxparag})
 })
 
 app.get('/gabriel', (req,res)=>
@@ -57,7 +69,8 @@ app.post('/calcular',(req,res)=>
     const n1 = parseInt(req.body.numero1)
     const n2 = parseInt(req.body.numero2)
     const resposta = n1 + n2
-    res.send('Resultado: '+resposta)
+    res.render('calculo',{resposta:resposta})
+    //res.send('Resultado: '+resposta)
 }) 
 
 

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paragrafo</title>
+</head>
+
+<body>
+    <form action="/paragrafar" method="post">
+        <input type="number" name="parag" id="parag"><br>
+        <input type="submit" value="paragrafar">
+    </form>
+    <%if (typeof maxparag !=="undefined" ){%>
+        <%for(i=1 ; i < maxparag ; i++){%>
+            <h4>
+                <%=i%>
+            </h4>
+            <%}%>
+                <%}%>
+</body>
+
+</html>
