@@ -70,4 +70,4 @@ router.post('/pesquisar', (req,res) =>
     res.send('dados recebidos: '+req.body.nome)
 })
 
-//export defaulr router;
+export default router;
