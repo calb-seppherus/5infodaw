@@ -2,27 +2,27 @@ import express from 'express';
 export const router = express.Router();
 import {abreindex,calculo,calcular,paragrafo,paragrafar,gabriel,nome,nomesobrenome,soma,somadobro,pesquisar} from '../controllers/controllers.js'
 
-router.get('/',)
+router.get('/',abreindex)
 
-router.get('/calculo',)
+router.get('/calculo',calculo)
 
 //rota para receber os dados, fazer o calculo e mostrar o resultado final
-router.post('/calcular',) 
+router.post('/calcular',calcular) 
 
-router.get('/paragrafo',)
+router.get('/paragrafo',paragrafo)
 
-router.post('/paragrafar',)
+router.post('/paragrafar',paragrafar)
 
-router.get('/gabriel',)
+router.get('/gabriel',gabriel)
 
-router.get('/:nome',)
+router.get('/:nome',nome)
 
-router.get('/:nome/:sobrenome', )
+router.get('/:nome/:sobrenome',nomesobrenome )
 
-router.get('/soma/:numero1/:numero2', )
+router.get('/soma/:numero1/:numero2',soma )
 
-router.get('/somadobro/:numero1/:numero2',)
+router.get('/somadobro/:numero1/:numero2',somadobro)
 
-router.post('/pesquisar',)
+router.post('/pesquisar',pesquisar)
 
 export default router;
