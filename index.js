@@ -16,6 +16,16 @@ app.get('/calculo',(req,res)=>
     res.render('calculo')
 })
 
+//rota para receber os dados, fazer o calculo e mostrar o resultado final
+app.post('/calcular',(req,res)=>
+{
+    const n1 = parseInt(req.body.numero1)
+    const n2 = parseInt(req.body.numero2)
+    const resposta = n1 + n2
+    res.render('calculo',{resposta:resposta})
+    //res.send('Resultado: '+resposta)
+}) 
+
 app.get('/paragrafo',(req,res)=>
 {
     res.render('paragrafo')
@@ -63,15 +73,6 @@ app.post('/pesquisar', (req,res) =>
     res.send('dados recebidos: '+req.body.nome)
 })
 
-//rota para receber os dados, fazer o calculo e mostrar o resultado final
-app.post('/calcular',(req,res)=>
-{
-    const n1 = parseInt(req.body.numero1)
-    const n2 = parseInt(req.body.numero2)
-    const resposta = n1 + n2
-    res.render('calculo',{resposta:resposta})
-    //res.send('Resultado: '+resposta)
-}) 
 
 
 app.listen(port)
