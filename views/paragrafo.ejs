@@ -10,15 +10,25 @@
 <body>
     <form action="/paragrafar" method="post">
         <input type="number" name="parag" id="parag"><br>
+        <input type="number" name="coluna" id="coluna">
         <input type="submit" value="paragrafar">
     </form>
-    <%if (typeof maxparag !=="undefined" ){%>
-        <%for(i=1 ; i <=maxparag ; i++){%>
-            <p>
-                <%=i%>
-            </p>
-            <%}%>
-                <%}%>
+    <%if (typeof maxparag !=="undefined" && typeof coluna !=="undefined" ){%>
+        <table>
+            <%let num=1;%>
+                <%for(i=1 ; i <=maxparag ; i++){%>
+                    <tr>
+                        <%for(let j=1 ; j<=coluna; j++){%>
+                            <td>
+                                <%=num%>
+                            </td>
+                            <%num++%>
+                                <%}%>
+
+                    </tr>
+                    <%}%>
+                        <%}%>
+        </table>
 </body>
 
 </html>
