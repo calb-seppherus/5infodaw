@@ -60,7 +60,7 @@ app.get('/soma/:numero1/:numero2', (req,res)=>
     res.send('O resulatdo da soma é '+resposta)
 })
 
-app.get('/somad/:numero1/:numero2', (req,res)=>
+app.get('/somadobro/:numero1/:numero2', (req,res)=>
 {
     const n1 = parseInt(req.params.numero1)
     const n2 = parseInt(req.params.numero2)
