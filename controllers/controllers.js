@@ -65,3 +65,8 @@ export function pesquisar (req,res)
 {
     res.send('dados recebidos: '+req.body.nome)
 }
+
+export function abreupload(req,res)
+{
+    res.render('upload');
+}
