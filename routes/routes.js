@@ -1,6 +1,9 @@
 import express from 'express';
 export const router = express.Router();
-import {abreindex,calculo,calcular,paragrafo,paragrafar,gabriel,nome,nomesobrenome,soma,somadobro,pesquisar,abreupload} from '../controllers/controllers.js'
+import {abreindex,calculo,calcular,paragrafo,paragrafar,gabriel,nome,nomesobrenome,soma,somadobro,pesquisar,abreupload,upload} from '../controllers/controllers.js'
+import multer from 'multer';
+const foto = multer({ dest: './public'});
+
 
 router.get('/',abreindex)
 
@@ -16,6 +19,7 @@ router.post('/paragrafar',paragrafar)
 router.get('/gabriel',gabriel)
 
 router.get('/upload', abreupload)
+router.post('/upload', foto.single('foto') , upload)
 
 router.get('/:nome',nome)
 

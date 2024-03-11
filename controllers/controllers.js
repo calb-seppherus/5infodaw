@@ -3,7 +3,6 @@ export function abreindex (req,res)
     res.render('index')
 }
 
-
 export function calculo (req,res)
 {
     res.render('calculo')
@@ -68,5 +67,10 @@ export function pesquisar (req,res)
 
 export function abreupload(req,res)
 {
-    res.render('upload');
+    res.render('upload')
+}
+
+export function upload(req,res)
+{
+    res.send("<img src='/"+req.file.filename+"'>")
 }
