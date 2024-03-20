@@ -1,3 +1,5 @@
+import Usuario from '../models/usuario.js'
+
 export function abreindex (req,res)
 {
     res.render('index')
@@ -93,4 +95,9 @@ export async function mostradados(req,res)
     console.log(usuario)
     
     await usuario.save()
+    res.render('usuario')
+
+    usuario.save((err,result) =>{
+        res.render('usuario')
+    })
 }

@@ -1,7 +1,7 @@
 import express from 'express';
 export const router = express.Router();
 //import {abreindex,calculo,calcular,paragrafo,paragrafar,gabriel,nome,nomesobrenome,soma,somadobro,pesquisar,abreupload,upload} from '../controllers/controllers.js'
-import {abretela,mostradados} from '.../controllers/controllers.js'
+import {abretela,mostradados} from '../controllers/controllers.js'
 import multer from 'multer';
 const foto = multer({ dest: './public'});
 
