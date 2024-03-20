@@ -74,3 +74,23 @@ export function upload(req,res)
 {
     res.send("<img src='/"+req.file.filename+"'>")
 }
+
+export function abretela(req,res)
+{
+    res.render('usuario')
+}
+
+export async function mostradados(req,res)
+{
+    const usuario = new Usuario({
+        nome: req.body.nome,
+        email: req.body.email,
+        senha: req.body.senha,
+        foto: req.file.filename,
+        datanasc: req.body.datanasc
+    })
+
+    console.log(usuario)
+    
+    await usuario.save()
+}
