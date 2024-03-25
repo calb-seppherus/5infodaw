@@ -82,7 +82,7 @@ export function abretela(req,res)
     res.render('usuario')
 }
 
-export async function mostradados(req,res)
+export async function cadastrausuario(req,res)
 {
     const usuario = new Usuario({
         nome: req.body.nome,
@@ -97,7 +97,20 @@ export async function mostradados(req,res)
     await usuario.save()
     res.render('usuario')
 
-    usuario.save((err,result) =>{
+    usuario.save((err,result) =>
+    {
         res.render('usuario')
     })
+}
+
+export async function mostrausuarios(req,res)
+{
+    let usuarios = await Usuario.find ({})
+    res.render('mostrausuarios', {Usuarios:usuarios})
+}
+
+export async function buscarusuarios(req,res)
+{
+    let usuarios = await Usuario.find ({nome: req.body.pesquisar})
+    res.render('mostrausuarios', {Usuarios:usuarios})
 }
