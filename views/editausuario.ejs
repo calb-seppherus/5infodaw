@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuario</title>
+</head>
+
+<body>
+    <form method="post">
+        <label for="id">Id</label>
+        <input type="text" name="_id" id="id" readonly value="<%=Usuario._id%>">
+        <label for="nome">nome:</label>
+        <input type="text" name="nome" id="nome" placeholder="digite nome" value="<%=Usuario.nome%>"><br>
+        <label for="email">email:</label>
+        <input type="email" name="email" id="email" placeholder="digite email" value="<%=Usuario.email%>"><br>
+        <label for="senha">senha:</label>
+        <input type="password" name="senha" id="senha" placeholder="digite senha" value="<%=Usuario.senha%>"><br>
+        <label for="datanasc">data de nascimento</label>
+        <input type="date" name="datanasc" id="datanasc" value="<%=Usuario.datanasc%>"><br>
+        <input type="submit" value="enviar">
+
+
+    </form>
+</body>
+
+</html>

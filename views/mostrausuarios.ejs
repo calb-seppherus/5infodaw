@@ -28,7 +28,11 @@
                     <%=usuario.email%>
                 </td>
                 <td>
-                    <img src="<%=usuario.foto%>" width="100px" alt="Foto do perfil">
+                    <img src="/<%=usuario.foto%>" width="100px" alt="Foto do perfil">
+                </td>
+                <td>
+                    <a href="/editarusuario/<%=usuario._id%>">Editar</a>
+                    <a href="/deletarusuario/<%=usuario._id%>">Deletar</a>
                 </td>
             </tr>
             <%})%>
