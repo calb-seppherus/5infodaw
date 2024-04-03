@@ -97,10 +97,7 @@ export async function cadastrausuario(req,res)
     await usuario.save()
     res.render('usuario')
 
-    usuario.save((err,result) =>
-    {
-        res.render('usuario')
-    })
+    
 }
 
 export async function mostrausuarios(req,res)
