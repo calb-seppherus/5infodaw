@@ -29,7 +29,7 @@ router.get('/postlist', listapost)
 router.post('/postlist', filtrapost)
 
 router.get('/postupdate/:id', abrepostupdate)
-router.post('/postupdate/:id', postupdate)
+router.post('/postupdate/:id',foto.single('foto'), postupdate)
 
 router.get('/postdelete/:id', postdelete)
 
