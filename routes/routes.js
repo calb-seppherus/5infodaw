@@ -28,10 +28,10 @@ router.post('/postadd', foto.single('foto'), postadd)
 router.get('/postlist', listapost)
 router.post('/postlist', filtrapost)
 
-router.get('/postupdate', abrepostupdate)
-router.post('/postupdate', postupdate)
+router.get('/postupdate/:id', abrepostupdate)
+router.post('/postupdate/:id', postupdate)
 
-router.get('/postdelete', postdelete)
+router.get('/postdelete/:id', postdelete)
 
 
 /*
