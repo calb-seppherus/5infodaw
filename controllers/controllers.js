@@ -150,11 +150,12 @@ export async function abrepostadd(req,res)
 
 export async function postadd(req,res)
 {
+    let tags = req.body.tags.split(';')
     const post = new Post(
         {
             titulo: req.body.titulo,
             texto: req.body.descricao,
-            tags: req.body.tags,
+            tags: tags,
             foto: req.file.filename,
             data: req.body.data,
             status: req.body.status

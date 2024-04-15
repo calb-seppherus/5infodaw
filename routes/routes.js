@@ -23,7 +23,7 @@ router.get('/', abrelogin)
 
 
 router.get('/postadd', abrepostadd)
-router.post('/postadd', postadd)
+router.post('/postadd', foto.single('foto'), postadd)
 
 router.get('/postlist', listapost)
 router.post('/postlist', filtrapost)
