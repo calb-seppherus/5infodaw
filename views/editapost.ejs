@@ -1,0 +1,43 @@
+<%-include('cabecalho.ejs')%>
+<form method="post" enctype="multipart/form-data">
+    <div class="form-floating mb-3">
+        <input type="text" class='form-control' name="_id" id="id" readonly value="<%=Post._id%>">
+        <label class="form-label" for="id">Id</label>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="titulo">titulo</label>
+        <input class="form-control" type="text" name="titulo" id="titulo" value="<%Post.titulo%>">
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="descricao">descricao</label>
+        <input class="form-control" type="text" name="descricao" id="descricao" value="<%Post.descricao%>" placeholder="descricao">
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="tags">tags</label>
+        <input class="form-control" type="text" name="tags" id="tags" placeholder="tags" value="<%Post.tags%>">
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="foto">foto</label>
+        <input class="form-control" type="file" name="foto" id="foto" value="<%Post.foto%>">
+    </div>
+    <div>
+        <label for="status">Status</label>
+        <select name="status" id="status">
+            <option 
+            <%if (Post.status == 'postado') {%>
+                selected
+            <%}%>
+            value="postado">postado</option>
+
+            <option
+            <%if (Post.status == 'rascunho') {%>
+                selected
+            <%}%>
+            value="rascunho">rascunho</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <input class="btn btn-primary" type="submit" value="enviar">
+    </div>
+    </form>
+<%-include('rodape.ejs')%>
