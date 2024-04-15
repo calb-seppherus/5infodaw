@@ -1,5 +1,6 @@
 import Usuario from '../models/usuario.js'
 import Post from '../models/post.js'
+import post from '../models/post.js'
 
 export function abreindex (req,res)
 {
@@ -116,7 +117,7 @@ export async function buscarusuarios(req,res)
 export async function abretelaeditar(req,res)
 {
     let usuario = await Usuario.findById(req.params.id)
-    res.render('editausuario', {Usuario:usuario})
+    res.render('editausuario.ejs', {Usuario:usuario})
 }
 
 export async function editarusuario(req,res)
@@ -132,7 +133,7 @@ export async function editarusuario(req,res)
 
 export async function deletarusuario(req,res)
 {
-    await Usuario.findByIdAndDelete(req.params.id)
+    let usuario = await Usuario.findByIdAndDelete(req.params.id)
     res.redirect('/mostrausuarios')
 }
 
@@ -175,20 +176,30 @@ export async function listapost(req,res)
 
 export async function filtrapost(req,res)
 {
-
+    let post = await Post.find ({titulo: new RegExp(req.body.pesquisar, 'i')})
+    res.render('mostrapost', {Post:post})
 }
 
 export async function abrepostupdate(req,res)
 {
-
+    let post = await Post.findById(req.params.id);
+    res.render('editapost.ejs', {Post:post});
 }
 
 export async function postupdate(req,res)
 {
-
+    let post = await Post.findById(req.params.id)
+    post.titulo = req.body.titulo;
+    post.texto = req.body.texto;
+    post.status = req.body.status;
+    post.tags = req.body.tags.split(',');
+    post.foto = req.file.filename;
+    await post.save()
+    res.redirect('/mostrapost')
 }
 
 export async function postdelete(req,res)
 {
-
+    let post = await Post.findByIdAndDelete(req.params.id);
+    res.redirect('/postlist');
 }
