@@ -1,0 +1,34 @@
+<%-include('cabecalho.ejs')%>
+    <form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label class="form-label" for="titulo">titulo</label>
+        <input class="form-control" type="text" name="titulo" id="titulo" placeholder="titulo">
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="descricao">descricao</label>
+        <input class="form-control" type="text" name="descricao" id="descricao" placeholder="descricao">
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="tags">tags</label>
+        <input class="form-control" type="text" name="tags" id="tags" placeholder="tags">
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="foto">foto</label>
+        <input class="form-control" type="file" name="foto" id="foto">
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="data">data</label>
+        <input class="form-control" type="date" name="datanasc" id="datanasc"><br>
+    </div>
+    <div>
+        <label for="status"></label>
+        <select name="status" id="status">
+            <option value="postado">postado</option>
+            <option value="rascunho">rascunho</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <input class="btn btn-primary" type="submit" value="enviar">
+    </div>
+    </form>
+<%-include('rodape.ejs')%>

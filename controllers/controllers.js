@@ -1,4 +1,5 @@
 import Usuario from '../models/usuario.js'
+import Post from '../models/post.js'
 
 export function abreindex (req,res)
 {
@@ -128,7 +129,7 @@ export async function editarusuario(req,res)
     await usuario.save()
     res.redirect('/mostrausuarios')
 }
-router.get('/deletarusuario/:id', deletarusuario)
+
 export async function deletarusuario(req,res)
 {
     await Usuario.findByIdAndDelete(req.params.id)
@@ -138,4 +139,55 @@ export async function deletarusuario(req,res)
 export async function abrelogin(req,res)
 {
     res.render('login.ejs')
+}
+
+/*-------------------------------------------------------------------------------------------------------*/
+
+export async function abrepostadd(req,res)
+{
+    res.render('adicionarpost.ejs')
+}
+
+export async function postadd(req,res)
+{
+    const post = new Post(
+        {
+            titulo: req.body.titulo,
+            texto: req.body.descricao,
+            tags: req.body.tags,
+            foto: req.file.filename,
+            data: req.body.data,
+            status: req.body.status
+        })
+
+    console.log(post);
+    await post.save();
+
+    res.render('adicionarpost.ejs');
+}
+
+export async function listapost(req,res)
+{
+    let post = await Post.find ({})
+    res.render('mostrapost', {Post:post})
+}
+
+export async function filtrapost(req,res)
+{
+
+}
+
+export async function abrepostupdate(req,res)
+{
+
+}
+
+export async function postupdate(req,res)
+{
+
+}
+
+export async function postdelete(req,res)
+{
+
 }

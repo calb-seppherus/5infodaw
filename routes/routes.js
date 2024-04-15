@@ -1,7 +1,9 @@
 import express from 'express';
 export const router = express.Router();
 //import {abreindex,calculo,calcular,paragrafo,paragrafar,gabriel,nome,nomesobrenome,soma,somadobro,pesquisar,abreupload,upload} from '../controllers/controllers.js'
-import {abretela,cadastrausuario,mostrausuarios,buscarusuarios,abretelaeditar,editarusuario,deletarusuario,abrelogin} from '../controllers/controllers.js'
+import {abretela,cadastrausuario,mostrausuarios,buscarusuarios,abretelaeditar,
+        editarusuario,deletarusuario,abrelogin,abrepostadd,postadd,listapost,
+        filtrapost,abrepostupdate,postupdate,postdelete} from '../controllers/controllers.js'
 import multer from 'multer';
 const foto = multer({ dest: './public'});
 
@@ -17,6 +19,20 @@ router.post('/editarusuario/:id', editarusuario)
 router.get('/deletarusuario/:id', deletarusuario)
 
 router.get('/', abrelogin)
+
+
+
+router.get('/postadd', abrepostadd)
+router.post('/postadd', postadd)
+
+router.get('/postlist', listapost)
+router.post('/postlist', filtrapost)
+
+router.get('/postupdate', abrepostupdate)
+router.post('/postupdate', postupdate)
+
+router.get('/postdelete', postdelete)
+
 
 /*
 router.get('/',abreindex)
