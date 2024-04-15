@@ -188,6 +188,7 @@ export async function abrepostupdate(req,res)
 
 export async function postupdate(req,res)
 {
+    console.log(req.body)
     let post = await Post.findById(req.params.id)
     post.titulo = req.body.titulo;
     post.texto = req.body.texto;
@@ -195,7 +196,7 @@ export async function postupdate(req,res)
     post.tags = req.body.tags.split(',');
     post.foto = req.file.filename;
     await post.save()
-    res.redirect('/mostrapost')
+    res.redirect('/postlist');
 }
 
 export async function postdelete(req,res)
