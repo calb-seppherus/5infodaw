@@ -1,6 +1,7 @@
 import express from 'express';
 export const router = express.Router();
 import passport from '../config/passport.js';
+import autenticacao from '../config/autenticacao.js';
 //import {abreindex,calculo,calcular,paragrafo,paragrafar,gabriel,nome,nomesobrenome,soma,somadobro,pesquisar,abreupload,upload} from '../controllers/controllers.js'
 import {abretela,cadastrausuario,mostrausuarios,buscarusuarios,abretelaeditar,
         editarusuario,deletarusuario,abrelogin,abrepostadd,postadd,listapost,
@@ -8,16 +9,16 @@ import {abretela,cadastrausuario,mostrausuarios,buscarusuarios,abretelaeditar,
 import multer from 'multer';
 const foto = multer({ dest: './public'});
 
-router.get('/usuario', abretela);
-router.post('/usuario', foto.single('foto'), cadastrausuario)
+router.get('/usuario',autenticacao, abretela);
+router.post('/usuario',autenticacao, foto.single('foto'), cadastrausuario)
 
-router.get('/mostrausuarios', mostrausuarios)
-router.post('/mostrausuarios', buscarusuarios)
+router.get('/mostrausuarios',autenticacao, mostrausuarios)
+router.post('/mostrausuarios',autenticacao, buscarusuarios)
 
-router.get('/editarusuario/:id', abretelaeditar)
-router.post('/editarusuario/:id', editarusuario)
+router.get('/editarusuario/:id',autenticacao, abretelaeditar)
+router.post('/editarusuario/:id',autenticacao, editarusuario)
 
-router.get('/deletarusuario/:id', deletarusuario)
+router.get('/deletarusuario/:id',autenticacao, deletarusuario)
 
 //rota para abrir a tela de login
 router.get('/', abrelogin)
@@ -27,16 +28,16 @@ router.post('/', passport.authenticate('local',{
 }))
 
 
-router.get('/postadd', abrepostadd)
-router.post('/postadd', foto.single('foto'), postadd)
+router.get('/postadd',autenticacao, abrepostadd)
+router.post('/postadd',autenticacao, foto.single('foto'), postadd)
 
-router.get('/postlist', listapost)
-router.post('/postlist', filtrapost)
+router.get('/postlist',autenticacao, listapost)
+router.post('/postlist',autenticacao, filtrapost)
 
-router.get('/postupdate/:id', abrepostupdate)
-router.post('/postupdate/:id',foto.single('foto'), postupdate)
+router.get('/postupdate/:id',autenticacao, abrepostupdate)
+router.post('/postupdate/:id',autenticacao,foto.single('foto'), postupdate)
 
-router.get('/postdelete/:id', postdelete)
+router.get('/postdelete/:id',autenticacao, postdelete)
 
 
 /*
