@@ -18,6 +18,7 @@ router.post('/editarusuario/:id', editarusuario)
 
 router.get('/deletarusuario/:id', deletarusuario)
 
+//rota para abrir a tela de login
 router.get('/', abrelogin)
 
 
