@@ -1,9 +1,10 @@
 import express from 'express';
 export const router = express.Router();
+import passport from '../config/passport.js';
 //import {abreindex,calculo,calcular,paragrafo,paragrafar,gabriel,nome,nomesobrenome,soma,somadobro,pesquisar,abreupload,upload} from '../controllers/controllers.js'
 import {abretela,cadastrausuario,mostrausuarios,buscarusuarios,abretelaeditar,
         editarusuario,deletarusuario,abrelogin,abrepostadd,postadd,listapost,
-        filtrapost,abrepostupdate,postupdate,postdelete} from '../controllers/controllers.js'
+        filtrapost,abrepostupdate,postupdate,postdelete,} from '../controllers/controllers.js'
 import multer from 'multer';
 const foto = multer({ dest: './public'});
 
@@ -20,7 +21,10 @@ router.get('/deletarusuario/:id', deletarusuario)
 
 //rota para abrir a tela de login
 router.get('/', abrelogin)
-
+router.post('/', passport.authenticate('local',{
+        successRedirect: '/usuario',
+        failureRedirect: '/'
+}))
 
 
 router.get('/postadd', abrepostadd)
